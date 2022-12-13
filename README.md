@@ -4,7 +4,7 @@
 
 <h2>フォーク手順</h2>
 
-1. https://github.com/cadenza-system/kadai-app/fork にアクセス
+1. https://github.com/daichi-tokunaga/kadai-app/fork にアクセス
 
 1. Ownerが自分のアカウント、Repository nameがkadai-appになっていることを確認
 
@@ -25,7 +25,9 @@
 
 コマンドを実行
 
-```composer update```
+```
+composer update
+```
 
 <h2>3. データベースの構築</h2>
 
@@ -42,17 +44,17 @@ php artisan migrate
 実行すると下記のようにデータベースを作るか確認されるので yes と入力
 
 ```
-   WARN  The database 'kadai-app' does not exist on the 'mysql' connection.
+  WARN  The database 'kadai-app' does not exist on the 'mysql' connection.
 
-  Would you like to create it? (yes/no) [no]
+Would you like to create it? (yes/no) [no]
 
-  > yes <=入力
-  ```
+> yes <=入力
+```
 
-  4. データベースに初期データを挿入
-  ```
-  php artisan db:seed
-  ```
+1. データベースに初期データを挿入
+```
+php artisan db:seed
+```
 
 <h2>4. アプリケーションの起動</h2>
 
@@ -66,6 +68,13 @@ php artisan serve
 
 ```
 localhost:8000
+```
+
+<h3>ログイン</h3>
+
+```
+e-mail: oca@email.com
+password: oca
 ```
 
 - - -
@@ -167,5 +176,3 @@ JavascriptとLaravel(○○Controller内)の両方で同じバリデーション
 > * 8文字以上であること
 
 - - -
-
-
