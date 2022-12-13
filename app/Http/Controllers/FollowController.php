@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller,
     Session;
 use App\Models\User;
+
 class FollowController extends Controller
 {
     /**
@@ -30,7 +31,7 @@ class FollowController extends Controller
         $loginUser = Session::get('user');
 
         // 画面表示
-        return view('user.follow', compact('user','followUsers','followerUsers'));
+        return view('user.follow', compact('user', 'followUsers', 'followerUsers'));
     }
 
     /**
@@ -62,6 +63,6 @@ class FollowController extends Controller
         }
 
         // 画面表示
-        return redirect('/user/'.$user->id);
+        return redirect('/user/' . $user->id);
     }
 }

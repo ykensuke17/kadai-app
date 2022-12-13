@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller,
     Session;
 use App\Models\User;
+
 class UserController extends Controller
 {
     /**
@@ -45,7 +46,7 @@ class UserController extends Controller
         }
 
         // 画面表示
-        return view('user.index', compact('user','posts','followCount','followerCount','isOwnPage', 'isFollowed'));
+        return view('user.index', compact('user', 'posts', 'followCount', 'followerCount', 'isOwnPage', 'isFollowed'));
     }
 
     /**
@@ -104,7 +105,7 @@ class UserController extends Controller
         $user->save();
 
         // 画面表示
-        return redirect('/user/'.$user->id);
+        return redirect('/user/' . $user->id);
     }
 
 

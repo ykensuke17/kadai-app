@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller,
     Session;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,7 +31,7 @@ class HomeController extends Controller
         $posts = [];
         foreach ($users as $user) {
             foreach ($user->posts() as $post) {
-                array_push($posts, array('user'=> $user, 'post'=> $post));
+                array_push($posts, array('user' => $user, 'post' => $post));
             }
         }
 
@@ -43,7 +45,8 @@ class HomeController extends Controller
     /**
      * ホームに表示する投稿を時系列順に並べ替え
      */
-    private function sort($array) {
+    private function sort($array)
+    {
         foreach ($array as $key => $value) {
             $standard_key_array[$key] = $value['post']['created_at'];
         }

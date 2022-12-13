@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller,
@@ -23,7 +24,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // 入力されたユーザーが存在するか確認
-        $user = User::where('email',$request->email)->first();
+        $user = User::where('email', $request->email)->first();
         $errorMessage = 'ユーザーが存在しないかパスワードが間違っています';
         if ($user == null) {
             return view('login', compact('errorMessage'));
@@ -42,7 +43,8 @@ class LoginController extends Controller
     /**
      * ログアウト処理
      */
-    public function logout() {
+    public function logout()
+    {
         return redirect('/login');
     }
 }

@@ -13,7 +13,8 @@ class Post extends Model
     /**
      * この投稿を投稿したユーザーを取得する
      */
-    public function user() {
+    public function user()
+    {
         return User::find($this->user);
     }
 }

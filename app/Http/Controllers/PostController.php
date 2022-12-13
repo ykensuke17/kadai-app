@@ -12,7 +12,8 @@ class PostController extends Controller
     /**
      * 投稿画面遷移
      */
-    function create() {
+    function create()
+    {
         // セッションにログイン情報があるか確認
         if (!Session::exists('user')) {
             // ログインしていなければログインページへ
@@ -26,7 +27,8 @@ class PostController extends Controller
     /**
      * 投稿処理
      */
-    function store(Request $request) {
+    function store(Request $request)
+    {
         // セッションにログイン情報があるか確認
         if (!Session::exists('user')) {
             // ログインしていなければログインページへ
@@ -72,7 +74,7 @@ class PostController extends Controller
         }
 
         // 画面表示
-        return view('post.detail', compact('post','user','isOwnPost'));
+        return view('post.detail', compact('post', 'user', 'isOwnPost'));
     }
 
     /**
@@ -125,7 +127,7 @@ class PostController extends Controller
         $post->save();
 
         // 画面表示
-        return redirect('/post/detail/'.$post->id);
+        return redirect('/post/detail/' . $post->id);
     }
 
     /**
