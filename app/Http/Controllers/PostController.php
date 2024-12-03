@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Controllers\Controller,
     Session;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -29,6 +30,15 @@ class PostController extends Controller
      */
     function store(Request $request)
     {
+
+        $rules = [
+            'postContent' => 'required|max:140',
+        ];
+
+        $messages = ['required' => '投稿内容を入力してください。', 'max' => '投稿内容を140文字以下にしてください。'];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
         // セッションにログイン情報があるか確認
         if (!Session::exists('user')) {
             // ログインしていなければログインページへ
