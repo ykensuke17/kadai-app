@@ -123,7 +123,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //TODO 登録処理
+        $user = new User;
+        $user->name = $request->email;
+        $user->email = $request->email;
+        $user->biography = '未設定です';
+        $user->password = $request->password;
+        $user->save();
 
+        Session::put('user', $user);
         return redirect('/');
     }
 }

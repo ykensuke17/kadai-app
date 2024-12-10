@@ -36,6 +36,10 @@ class HomeController extends Controller
         }
 
         // 投稿を時系列順に並べ替え
+        $count = count($posts);
+        if ($count == 0) {
+            return view('home', compact('posts'));
+        }
         $posts = $this->sort($posts);
 
         // 画面表示
