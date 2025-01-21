@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller,
     Session;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -122,6 +123,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        //追加 バリデーション
+        $rules = [
+            'name' => 'requierd|max:20',
+            'email' => 'requierd|email',
+            'password' => 'requierd|numeric|' //最低何文字かを追加
+
+        ];
+
+        $messages = [
+            'rewuired' => '必須項目です',
+            'email' => 'メールアドレスを入力してください'
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
         //TODO 登録処理
         $user = new User;
         $user->name = $request->email;
