@@ -126,21 +126,28 @@ class UserController extends Controller
         //追加 バリデーション
         $rules = [
             'name' => 'requierd|max:20',
-            'email' => 'requierd|email',
-            'password' => 'requierd|numeric|' //最低何文字かを追加
+            'email' => 'requierd|email:strict,dns,spoof|unique:users',
+            'password' => 'requierd|regex:/regex:/^[a-zA-Z0-9-_]+$/|min:8',
 
         ];
 
         $messages = [
-            'rewuired' => '必須項目です',
-            'email' => 'メールアドレスを入力してください'
+            'name.required' => 'Nameを入力してください',
+            'name.max' => 'Nameは20文字以下で入力してください',
+            'email.required' => 'emailを入力してください',
+            'email.email' => 'emailは●●●@×××の形式で半角英数字、記号のみを使用して入力してください',
+            'password.required' => 'passwordを入力してください',
+            'password.regex' => 'passwordは半角英数字、ハイフン、アンダーバーのみを使用して入力してください',
+            'password.min' => 'passwordは8文字以上で入力してください'
+
+
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
 
         //TODO 登録処理
         $user = new User;
-        $user->name = $request->email;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->biography = '未設定です';
         $user->password = $request->password;

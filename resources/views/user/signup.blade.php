@@ -16,6 +16,10 @@
     <div class="page signup-page">
         <form class="form" action="/signup" method="post">
             @csrf
+            <div class="form-item name">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" />
+            </div>
             <div class="form-item email">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" />
