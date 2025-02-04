@@ -132,8 +132,8 @@ class UserController extends Controller
         ];
 
         $messages = [
-            'name.required' => 'Nameを入力してください',
-            'name.max' => 'Nameは20文字以下で入力してください',
+            'name.required' => 'nameを入力してください',
+            'name.max' => 'nameは20文字以下で入力してください',
             'email.required' => 'emailを入力してください',
             'email.email' => 'emailは●●●@×××の形式で半角英数字、記号のみを使用して入力してください',
             'password.required' => 'passwordを入力してください',
