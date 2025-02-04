@@ -20,14 +20,35 @@
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" />
             </div>
+            @error('name')
+            <div>
+                <p class="error-message">
+                    {{ $message }}
+                </p>
+            </div>
+            @enderror
             <div class="form-item email">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" />
             </div>
+            @error('email')
+            <div>
+                <p class="error-message">
+                    {{ $message }}
+                </p>
+            </div>
+            @enderror
             <div class="form-item password">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" />
             </div>
+            @error('password')
+            <div>
+                <p class="error-message">
+                    {{ $message }}
+                </p>
+            </div>
+            @enderror
             <div class="signup-button">
                 <button class="button-white" type="submit">signup</button>
             </div>

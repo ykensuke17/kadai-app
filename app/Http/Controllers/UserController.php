@@ -125,9 +125,9 @@ class UserController extends Controller
     {
         //追加 バリデーション
         $rules = [
-            'name' => 'requierd|max:20',
-            'email' => 'requierd|email:strict,dns,spoof|unique:users',
-            'password' => 'requierd|regex:/regex:/^[a-zA-Z0-9-_]+$/|min:8',
+            'name' => 'required|max:20',
+            'email' => 'required|email:strict,dns,filter|unique:users',
+            'password' => 'required|regex:/^[a-zA-Z0-9-_]+$/|min:8',
 
         ];
 
