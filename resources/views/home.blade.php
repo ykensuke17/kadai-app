@@ -16,7 +16,11 @@
     <x-header></x-header>
     <div class="page home-page">
         <div class="page-title">ホーム</div>
-        <div class="page-title">kadai-appへようこそ."\n".誰かをフォローして投稿を見たり."\n".自分で新しい投稿をしたりしましょう</div>
+        @if (count($posts) == 0)
+        <div class="osusume">
+            誰かをフォローしてみましょう！
+        </div>
+        @endif
         <div class="post-list">
             @foreach ($posts as $post)
             <div class="post">
@@ -87,6 +91,7 @@
 
     .home-page .osusume {
         display: flex;
+        font-size: 28px;
         width: 100vw;
         padding: 0 10px;
     }

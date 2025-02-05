@@ -149,7 +149,6 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->biography = '未設定です';
         $user->password = $request->password;
         $user->save();
 

@@ -59,6 +59,11 @@
             </div>
             <div class="post-list">
                 <div class="title">投稿一覧</div>
+                @if (count($posts) == 0)
+                 <div class="osusume">
+                     新しい投稿をしてみましょう！
+                 </div>
+                 @endif
                 @foreach ($posts as $post)
                 <a href="/post/detail/{{ $post->id }}">
                     <div class="post">
@@ -160,6 +165,10 @@
     .user-page .time-stamp {
         font-size: 8px;
         text-align: end;
+    }
+
+    .user-page .osusume {
+        font-size: 28px;
     }
 </style>
 
